@@ -16,6 +16,6 @@
 		
 		<property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
 		
-		<mapping class="com.pearson.portfolio.entities.BloqueioPessoaPapel" />
+		<mapping class="com.pearson.portfolio.entities.Monitor" />
 	</session-factory>
 </hibernate-configuration>
