@@ -51,15 +51,15 @@
 		</bean>
 		
 		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
-			<property name="driverClass" value="net.sourceforge.jtds.jdbc.Driver"/>
-			<property name="jdbcUrl" value="jdbc:jtds:sqlserver://10.160.85.50/resolucoes"/>
-			<property name="user" value="usrdesenv"/>
-			<property name="password" value="usrdesenv"/>
+			<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/monitorDB"/>
+			<property name="user" value="root"/>
+			<property name="password" value="123456"/>
 			<property name="maxStatements" value="500" />
 			<property name="maxIdleTime" value="1800" />
 			<property name="maxPoolSize" value="50" />
-			<property name="minPoolSize" value="2" />
-			<property name="initialPoolSize" value="2" />
+			<property name="minPoolSize" value="5" />
+			<property name="initialPoolSize" value="5" />
 			<property name="acquireIncrement" value="3" />
 			<property name="idleConnectionTestPeriod" value="3000" />
 		</bean>
