@@ -1,49 +1,32 @@
 package br.com.citel.monitor.tests.repository;
 
-import static org.springframework.test.web.server.setup.MockMvcBuilders.annotationConfigSetup;
-
+import java.util.HashSet;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.web.server.MockMvc;
 
 import br.com.citel.monitor.model.Atributo;
+import br.com.citel.monitor.model.Condicao;
 import br.com.citel.monitor.repository.AtributoRepository;
-import br.com.citel.monitor.tests.controller.WebConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"customer-monitor-beans.xml"})
+@ContextConfiguration(locations = { "classpath:customer-monitor-beans.xml" })
 public class AtributoRepositoryIntegrationTests {
+
 	@Autowired
-	protected ApplicationContext context;
+	AtributoRepository repository;
 
-	protected MockMvc mockMvc;
-
-	@Before
-	public void setUp() {
-		mockMvc = annotationConfigSetup(getWebConfig()).setParentContext(context).configureWebAppRootDir("src/main/webapp", false).build();
-	}
-
-	protected Class<?> getWebConfig() {
-		return WebConfig.class;
-	}
-	  @Autowired
-	  AtributoRepository repository;
-
-	  @Test
+	@Test
 	  public void savesAndFindOne() {
 
-	    Atributo atributo = new Atributo();
-	    atributo.setAtributo("HD");
-	    atributo.setCondicao(" between 80  and 100");
-	    atributo.setCriticidade("CRITICO");
+		Atributo atributo = new Atributo(null,"HD",new HashSet<Condicao>());
+		atributo.getCondicoes().add( new Condicao(null, "beetween 80 and 100", "CRITICO", atributo));
+		atributo.getCondicoes().add( new Condicao(null, "beetween 0 and 79", "NORMAL", atributo));  
 
 	    Atributo result = repository.save(atributo);
 	    Assert.assertTrue( result != null && result.getId() != null );

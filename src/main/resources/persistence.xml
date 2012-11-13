@@ -12,6 +12,7 @@
 
 		<class>br.com.citel.monitor.model.Atributo</class>
 		<class>br.com.citel.monitor.model.Monitor</class>
+		<class>br.com.citel.monitor.model.Condicao</class>
 		
 		<properties>
 			<property name="hibernate.show_sql" value="true" />
