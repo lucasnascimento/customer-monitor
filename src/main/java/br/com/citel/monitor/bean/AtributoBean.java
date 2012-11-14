@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.citel.monitor.model.Atributo;
 import br.com.citel.monitor.repository.AtributoRepository;
 
+
 @ManagedBean(name="atributoBean")
 public class AtributoBean {
 	
