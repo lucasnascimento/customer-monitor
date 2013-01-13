@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	
+	<ui:define name="content">
+
+		<h:form id="reg" styleClass="form-horizontal">
+			<h2>Member Registration</h2>
+			<p>Enforces annotation-based constraints defined on the model
+				class.</p>
+				
+			<fieldset>	
+
+				<h:inputHidden id="id" value="#{member.id}" />
+				<div class="control-group">
+					<h:outputLabel for="name" value="Name:" styleClass="control-label"/>
+					<h:inputText id="name" value="#{member.name}" />
+					<h:message for="name" errorClass="error" />
+				</div>
+				<div class="control-group">
+					<h:outputLabel for="email" value="Email:" styleClass="control-label" />
+					<h:inputText id="email" value="#{member.email}" />
+					<h:message for="email" errorClass="error" />
+				</div>
+				<div class="control-group">
+					<h:outputLabel for="phoneNumber" value="Phone #:" styleClass="control-label"/>
+					<h:inputText id="phoneNumber" value="#{member.phoneNumber}" />
+					<h:message for="phoneNumber" errorClass="error" />
+				</div>	
+			</fieldset>
+
+			<div class="form-actions">
+					<h:commandButton id="register"
+						action="#{memberController.save}" value="Register"
+						styleClass="btn btn-primary" />
+						
+					<h:messages styleClass="" errorClass="alert alert-error"
+						infoClass="alert alert-info" warnClass="alert alert-block" globalOnly="true" />
+			</div>
+			
+		</h:form>
+
+	</ui:define>
+</ui:composition>
