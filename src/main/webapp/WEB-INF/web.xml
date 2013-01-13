@@ -53,7 +53,7 @@
 
 	<servlet-mapping>
 		<servlet-name>faces</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
+		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
 
 	<session-config>
