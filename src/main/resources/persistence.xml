@@ -9,12 +9,10 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<mapping-file>querys/Monitor.xml</mapping-file>
-
-		<class>br.com.citel.monitor.model.Atributo</class>
 		<class>br.com.citel.monitor.model.Monitor</class>
-		<class>br.com.citel.monitor.model.Condicao</class>
-		
+
 		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.use_sql_comments" value="true" />

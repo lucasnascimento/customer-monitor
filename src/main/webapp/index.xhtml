@@ -10,6 +10,29 @@
 			<h:commandButton action="/member/list.xhtml" value="CRUD Member"
 				styleClass="btn btn-primary" />
 		</h:form>
+
+
+		<h:form>
+			<h2>Lideres</h2>
+			<h:panelGroup rendered="#{empty indexBean.lideres}">
+				<em>Monitoramento vazio.</em>
+			</h:panelGroup>
+			<h:dataTable var="_lider" value="#{indexbean.lideres}"
+				rendered="#{not empty indexBean.lideres}"
+				styleClass="table table-bordered table-striped">
+				<h:column>
+					<f:facet name="header">Lider</f:facet>
+                #{_lider}
+            	</h:column>
+
+			</h:dataTable>
+
+
+		</h:form>
+
+
+
+
 	</ui:define>
 
 </ui:composition>

@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<context:component-scan base-package="br.com.citel.monitor" />
+	<context:component-scan base-package="br.com.citel.monitor.bean" />
 	<tx:annotation-driven />
 	<jpa:repositories base-package="br.com.citel.monitor.repository" />
 	
@@ -19,9 +19,9 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/citel-database" />
-		<property name="user" value="root" />
-		<property name="password" value="123456" />
+		<property name="jdbcUrl" value="jdbc:mysql://188.138.101.61:33476/PORTAL_TV" />
+		<property name="user" value="portal" />
+		<property name="password" value="portal@2013." />
 		<property name="maxStatements" value="500" />
 		<property name="maxIdleTime" value="1800" />
 		<property name="maxPoolSize" value="50" />
