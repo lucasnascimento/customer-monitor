@@ -3,10 +3,6 @@ package br.com.citel.monitor.bean;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-
-import lombok.Getter;
-import lombok.Setter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -21,15 +17,14 @@ import br.com.citel.monitor.repository.MonitorRepository;
 public class IndexBean {
 	
 	@Autowired
-	@ManagedProperty(value="br.com.citel.monitor.repository.MonitorRepository") @Getter @Setter
-	MonitorRepository repository;
-	
+	MonitorRepository monitorRepository;
+
 	public List<String> getLideres(){
-		return repository.findLideres();
+		return monitorRepository.findLideres();
 	}
 	
 	public List<Monitor> getProblemas(String nomeLider){
-		return repository.findByLider(nomeLider);
+		return monitorRepository.findByLider(nomeLider);
 	}
 
 	
