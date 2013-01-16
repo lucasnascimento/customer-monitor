@@ -6,15 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.citel.monitor.dto.LiderDTO;
 import br.com.citel.monitor.model.Monitor;
 
 @Repository
 public interface MonitorRepository extends CrudRepository<Monitor, Long> {
 
-	@Query("select distinct m.nomeLider from Monitor m")
-	List<String> findLideres();
+	@Query("select distinct new br.com.citel.monitor.dto.LiderDTO( m.codigoLider as codigoLider, m.nomeLider as nomeLider) from Monitor m")
+	List<LiderDTO> findLideres();
 	
-	@Query("select m from Monitor m where m.nomeLider = ?1")
-	List<Monitor> findByLider(String nomeLider);
+	@Query("select m from Monitor m where m.codigoLider = ?1")
+	List<Monitor> findByLider(Long codigoLider);
 
 }

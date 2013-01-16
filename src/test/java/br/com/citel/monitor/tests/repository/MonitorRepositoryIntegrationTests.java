@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.citel.monitor.dto.LiderDTO;
 import br.com.citel.monitor.model.Monitor;
 import br.com.citel.monitor.repository.MonitorRepository;
 
@@ -22,13 +23,13 @@ public class MonitorRepositoryIntegrationTests {
 	@Test
 	public void encontrarLiderEProblemas() {
 
-		List<String> lideres = repository.findLideres();
+		List<LiderDTO> lideres = repository.findLideres();
 		Assert.assertNotNull(lideres);
 		Assert.assertTrue("Lista de lideres voltou vazia.", !lideres.isEmpty());
 
-		for (String lider : lideres) {
+		for (LiderDTO lider : lideres) {
 
-			List<Monitor> problemas = repository.findByLider(lider);
+			List<Monitor> problemas = repository.findByLider(lider.getCodigoLider());
 			Assert.assertNotNull(problemas);
 			Assert.assertTrue("Lista de problemas voltou vazia.",
 					!problemas.isEmpty());

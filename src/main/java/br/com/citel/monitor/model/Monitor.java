@@ -1,4 +1,4 @@
-package br.com.citel.monitor.model;
+	package br.com.citel.monitor.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,21 +14,19 @@ public @Data class Monitor {
 	@Id
 	@Column(name="MON_SEQMON")
 	private Long sequencia;
-	@Column(name="RLJ_CODEMP")
+	@Column(name="MON_CODCLI")
 	private Long codigoCliente;
-	@Column(name="CLI_NOMCLI")
+	@Column(name="MON_NOMCLI")
 	private String nomeCliente;
-
-	private transient Long codigoLider = 0l;
-	
-	@Column(name="OPE_NOMOPE")
+	@Column(name="MON_CODOPE")
+	private Long codigoLider;
+	@Column(name="MON_NOMOPE")
 	private String nomeLider;
-	
-	@Column(name="TAR_DESTAR")
+	@Column(name="MON_IDETAR")
+	private String identificadorProblema;
+	@Column(name="MON_DESTAR")
 	private String descricaoProblema;
-
-	private transient String identificadorProblema = "HD";
-	
-	private transient String corProblema = "FF00FF";
+	@Column(name="MON_HEXCOR")
+	private String corProblema;
 
 }

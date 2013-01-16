@@ -6,10 +6,7 @@
 	template="/WEB-INF/templates/default.xhtml">
 
 	<ui:define name="content">
-		<h:form>
-			<h:commandButton action="/member/list.xhtml" value="CRUD Member"
-				styleClass="btn btn-primary" />
-		</h:form>
+
 
 
 		<h:form>
@@ -17,14 +14,45 @@
 			<h:panelGroup rendered="#{empty indexBean.lideres}">
 				<em>Monitoramento vazio.</em>
 			</h:panelGroup>
-			<h:dataTable var="_lider" value="#{indexbean.lideres}"
+			<h:dataTable var="_lider" value="#{indexBean.lideres}"
 				rendered="#{not empty indexBean.lideres}"
 				styleClass="table table-bordered table-striped">
 				<h:column>
 					<f:facet name="header">Lider</f:facet>
-                #{_lider}
+                	#{_lider.nomeLider}
             	</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
 
+					<h:commandButton value="Selecionar" styleClass="btn btn-primary"
+						action="#{indexBean.selecionarLider(_lider)}" />
+
+				</h:column>
+			</h:dataTable>
+
+			<h:panelGroup rendered="#{empty indexBean.problemas}">
+				<em>Selecione um Lider.</em>
+			</h:panelGroup>
+
+			<h:dataTable var="_monitor" value="#{indexBean.problemas}"
+				rendered="#{not empty indexBean.problemas}"
+				styleClass="table table-bordered table-striped">
+				<h:column>
+					<f:facet name="header">Cliente</f:facet>
+                	#{_monitor.codigoCliente} - #{_monitor.nomeCliente}
+            	</h:column>
+				<h:column>
+					<f:facet name="header">Identificador</f:facet>
+                	#{_monitor.identificadorProblema}
+            	</h:column>
+				<h:column>
+					<f:facet name="header">Descrição</f:facet>
+                	#{_monitor.descricaoProblema}
+            	</h:column>
+				<h:column>
+					<f:facet name="header">Cor</f:facet>
+                	#{_monitor.corProblema}
+            	</h:column>
 			</h:dataTable>
 
 
