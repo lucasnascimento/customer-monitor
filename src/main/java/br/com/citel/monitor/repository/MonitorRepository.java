@@ -15,6 +15,9 @@ public interface MonitorRepository extends CrudRepository<Monitor, Long> {
 	@Query("select distinct new br.com.citel.monitor.dto.LiderDTO( m.codigoLider as codigoLider, m.nomeLider as nomeLider) from Monitor m")
 	List<LiderDTO> findLideres();
 	
+	@Query("select distinct new br.com.citel.monitor.dto.LiderDTO( m.codigoLider as codigoLider, m.nomeLider as nomeLider) from Monitor m where m.codigoLider = ?1")
+	LiderDTO findLider(Long codigoLider);	
+	
 	@Query("select m from Monitor m where m.codigoLider = ?1")
 	List<Monitor> findByLider(Long codigoLider);
 

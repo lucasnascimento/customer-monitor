@@ -28,6 +28,10 @@ public class MonitorRepositoryIntegrationTests {
 		Assert.assertTrue("Lista de lideres voltou vazia.", !lideres.isEmpty());
 
 		for (LiderDTO lider : lideres) {
+			
+			LiderDTO liderDuble = repository.findLider(lider.getCodigoLider());
+			
+			Assert.assertEquals(lider, liderDuble);
 
 			List<Monitor> problemas = repository.findByLider(lider.getCodigoLider());
 			Assert.assertNotNull(problemas);
