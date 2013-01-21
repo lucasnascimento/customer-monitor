@@ -103,12 +103,25 @@ body {
 	padding-bottom: 5px;
 }
 
+.ticket-displayview{
+	position: relative;
+	height: 300px;
+	overflow:hidden;
+	background-color: grey;
+}
+.ticket-conteiner{
+	position: relative;
+	background-color: maroon;
+	top: -100px;
+}
 .ticket{
 	padding: 10px;
+	margin: 5px;
+	float: left;
+	width: 22%;
+	height: 90px;
+	border-radius: 10px;
 }
-
-
-
 
 
 
