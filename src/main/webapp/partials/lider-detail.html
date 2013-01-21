@@ -1,8 +1,12 @@
 
-<h1>{{lider.nomeLider}}</h1>
+<h1>Lider: {{lider.nomeLider}} ({{lider.problemas.length}})</h1>
 
-<div ng-repeat="problema in lider.problemas" class="hero-unit"
-	style="background-color: {{problema.corProblema}}">
-	{{problema.identificadorProblema}}</br> {{problema.codigoCliente}} -
-	{{problema.nomeCliente}} </br> {{problema.descricaoProblema}}</br>
+
+<div ng-repeat="linha in linhas" class="linhaTicket row">
+	<div ng-repeat="problema in linha" class="span3"
+		style="background-color: {{problema.corProblema}}">
+		<h2>{{problema.identificadorProblema}}</h2>
+		<p>{{problema.codigoCliente}} -	{{problema.nomeCliente}}</p> 
+		<p>{{problema.descricaoProblema}}</p>
+	</div>
 </div>
