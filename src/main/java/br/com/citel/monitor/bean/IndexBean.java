@@ -21,7 +21,7 @@ import br.com.citel.monitor.repository.MonitorRepository;
 
 @ManagedBean
 @Controller
-@Scope(value = "request")
+@Scope(value = "session")
 public class IndexBean {
 
 	@Getter
@@ -29,6 +29,9 @@ public class IndexBean {
 
 	@Getter
 	private List<Monitor> problemas;
+	
+	@Getter
+	private LiderDTO liderSelecionado;
 
 	@Autowired
 	MonitorRepository monitorRepository;
@@ -36,16 +39,20 @@ public class IndexBean {
 	@PostConstruct
 	public void init() {
 		lideres = monitorRepository.findLideres();
+		if (liderSelecionado != null){
+			problemas = monitorRepository.findByLider(liderSelecionado.getCodigoLider());
+		}
 		problemas = new ArrayList<Monitor>();
 	}
 
 	public void selecionarLider(LiderDTO liderDTO) {
+		liderSelecionado = liderDTO;
 		problemas = monitorRepository.findByLider(liderDTO.getCodigoLider());
 	}
 	
 	@RequestMapping(value="/lider", method=RequestMethod.GET)
 	public List<LiderDTO> recuperaLideres(){
-		return monitorRepository.findLideres();
+		return  monitorRepository.findLideres();
 	}
 	
 	@RequestMapping(value="/lider/{codigoLider}", method=RequestMethod.GET)
