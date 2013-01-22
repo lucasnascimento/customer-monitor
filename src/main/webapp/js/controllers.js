@@ -8,38 +8,45 @@ function LiderListCtrl($scope, $http) {
 }
 
 function LiderDetailCtrl($scope, $routeParams, $http) {
-
 	$http.get('api/lider/' + $routeParams.codigoLider).success(function(data) {
 		$scope.lider = data.liderDTO;
-		
-		problemas = data.liderDTO.problemas;
-		
-		quantidadeProblemas = problemas.length;
-		quantidadeLinhas = quantidadeProblemas / 4;
-		
-		var linhas = [];
-		
-		for(var i=0; i < quantidadeLinhas; i++){
-			var linha = [];
-			for (var j=1 ; j<=4 ; j++){
-				linha.push( problemas[i+j] );
-			}
-			linhas.push ( linha );
-		}
-		
-		quebra = quantidadeProblemas - (quantidadeLinhas * 4);
-		
-		var linha = [];
-		for (var i = quantidadeProblemas - quebra ; i <= quantidadeProblemas ; i++){
-			console.log(i);
-			linha.push( problemas [i-1] );
-		}
-		linhas.push (linha);
-		
-		$scope.linhas = linhas;
 
-		
-		
 	});
-	
 }
+
+function ViewPortCtrl($scope, $timeout) {
+	
+	$scope.windowHeight = $(window).height() - 115 ;
+	$('.ticket-displayview').css('height', $scope.windowHeight);
+	console.log('$scope.windowHeight: '+$scope.windowHeight);
+	$scope.selectedView = 0;
+
+	$scope.changeView = function() {
+
+		$scope.conteinerHeight = $('.ticket-conteiner').height();
+		console.log('$scope.lineHeight: '+$scope.conteinerHeight);
+
+		$scope.views = (  $scope.conteinerHeight / $scope.windowHeight );
+		console.log('$scope.views: '+ $scope.views);
+		
+		
+		$scope.topView = $scope.windowHeight * $scope.selectedView * -1;
+		console.log('$scope.topView: '+ $scope.topView);
+		$('.ticket-conteiner').css('top', $scope.topView);
+		
+		$scope.selectedView += 1;
+
+		if ($scope.selectedView > $scope.views){
+			$scope.selectedView = 0;
+		}
+
+		console.log($scope.views);
+		console.log($scope.selectedView);
+		
+		$timeout( $scope.changeView, 2000 );
+		
+	};
+	
+	$timeout( $scope.changeView, 2000 );
+}
+

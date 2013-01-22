@@ -3,5 +3,6 @@ angular.module('monitor', []).
   $routeProvider.
       when('/lideres', {templateUrl: 'partials/lider-list.html',   controller: LiderListCtrl}).
       when('/lideres/:codigoLider', {templateUrl: 'partials/lider-detail.html', controller: LiderDetailCtrl}).
+      when('/lideres/:codigoLider/:pagina', {templateUrl: 'partials/lider-detail.html', controller: LiderDetailCtrl}).
       otherwise({redirectTo: '/lideres'});
 }]);

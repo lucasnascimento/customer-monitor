@@ -94,9 +94,7 @@ textarea {
    ========================================================================== */
 
 body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-	padding-left: 10px;
+	padding: 0px;
 }
 
 .linhaTicket {
@@ -107,12 +105,15 @@ body {
 	position: relative;
 	height: 300px;
 	overflow:hidden;
-	background-color: grey;
 }
 .ticket-conteiner{
 	position: relative;
-	background-color: maroon;
-	top: -100px;
+	overflow: auto;
+	top: 0px;
+	transition: top 1s;
+	-moz-transition: top 1s; /* Firefox 4 */
+	-webkit-transition: top 1s; /* Safari and Chrome */
+	-o-transition: top 1s; /* Opera */
 }
 .ticket{
 	padding: 10px;
