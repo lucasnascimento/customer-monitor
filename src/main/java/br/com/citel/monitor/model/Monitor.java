@@ -14,7 +14,7 @@ public @Data class Monitor {
 	@Id
 	@Column(name="MON_SEQMON")
 	private Long sequencia;
-	@Column(name="MON_CODCLI")
+	@Column(name="MON_CODEMP")
 	private Long codigoCliente;
 	@Column(name="MON_NOMCLI")
 	private String nomeCliente;

@@ -94,16 +94,18 @@ textarea {
    ========================================================================== */
 
 body {
-	padding: 0px;
+	padding-top: 10px;
+	padding-left: 43px;
 }
 
-.linhaTicket {
-	padding-bottom: 5px;
+.titulo{
+	margin-bottom:5px; 
+	float: left;
 }
 
 .ticket-displayview{
 	position: relative;
-	height: 300px;
+	height: 480px;
 	overflow:hidden;
 }
 .ticket-conteiner{
@@ -122,9 +124,16 @@ body {
 	width: 22%;
 	height: 90px;
 	border-radius: 10px;
+	overflow:hidden;
 }
 
-
+.inputTempo
+{
+margin-top: 5px;
+margin-right: 60px;
+width:35px;
+float:right;
+}
 
 
 

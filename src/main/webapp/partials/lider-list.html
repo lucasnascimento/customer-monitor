@@ -5,9 +5,9 @@
 <!-- 	<option value="nomeLider">Alfabetico</option> -->
 <!-- 	<option value="codigoLider">Codigo</option> -->
 <!-- </select> -->
-
 <h2>Lideres</h2>
 <div class="btn-group">
+	<a	href="#/lideres/0" class="btn">TODOS</a>
 	<a ng-repeat="lider in lideres | filter:query | orderBy:orderProp "
 		href="#/lideres/{{lider.codigoLider}}" class="btn">{{lider.nomeLider}}</a>
 </div>

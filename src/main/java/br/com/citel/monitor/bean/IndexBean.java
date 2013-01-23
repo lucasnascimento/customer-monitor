@@ -57,8 +57,14 @@ public class IndexBean {
 	
 	@RequestMapping(value="/lider/{codigoLider}", method=RequestMethod.GET)
 	public LiderDTO recupera(@PathVariable Long codigoLider){
-		LiderDTO liderCompleto = monitorRepository.findLider(codigoLider);
-		if (liderCompleto == null) return null;
+		LiderDTO liderCompleto;
+		if (codigoLider != 0){
+			liderCompleto = monitorRepository.findLider(codigoLider);
+			if (liderCompleto == null) return null;
+		}else{
+			liderCompleto = new LiderDTO(0l,"Todos");
+		}
+		
 		liderCompleto.setProblemas( monitorRepository.findByLider(codigoLider));
 		return liderCompleto;
 	}

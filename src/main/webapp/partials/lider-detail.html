@@ -1,9 +1,8 @@
-
-<h1>Lider: {{lider.nomeLider}} ({{lider.problemas.length}})</h1>
-</br>
-
-
-<div class="ticket-displayview">
+<h1 class="titulo">Lider: {{lider.nomeLider}} ({{lider.problemas.length}})</h1>
+<div class="clearfix">
+ <input ng-model="tempoUpdateView" class="inputTempo">
+</div>
+<div class="ticket-displayview" ng-controller="ViewPortCtrl">
 	<div class="ticket-conteiner">
 		<div ng-repeat="problema in lider.problemas" class="ticket"
 			style="background-color: {{ problema.corProblema }}">
@@ -13,4 +12,3 @@
 		</div>
 	</div>
 </div>
-<div ng-controller="ViewPortCtrl"></div>
