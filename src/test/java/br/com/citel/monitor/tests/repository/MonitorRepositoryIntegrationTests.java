@@ -40,4 +40,11 @@ public class MonitorRepositoryIntegrationTests {
 		}
 
 	}
+	
+	@Test
+	public void encontrarSetores() {
+		List<String> lideres = repository.listSetores();
+		Assert.assertNotNull("Lista de Setores não pode estar vazia",lideres);
+	}
+	
 }

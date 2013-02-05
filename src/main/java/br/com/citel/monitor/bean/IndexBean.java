@@ -35,5 +35,11 @@ public class IndexBean {
 		liderCompleto.setProblemas( monitorRepository.findByLider(codigoLider));
 		return liderCompleto;
 	}
+	
+	@RequestMapping(value="/setor", method=RequestMethod.GET)
+	public List<String> recuperaSetores(){
+		return  monitorRepository.listSetores();
+	}
+
 
 }

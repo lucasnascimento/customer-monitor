@@ -1,0 +1,27 @@
+<select ng-model="query">
+	<option value="">SELECIONE O SETOR (TODOS)</option>
+	<option ng-repeat="setor in setores" value="{{setor}}">{{setor}}</option>
+</select>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Cliente</th>
+			<th>Lider</th>
+			<th>Problema</th>
+			<th>Descrição Problema</th>
+			<th>Setor</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="problema in problemas | filter:query "
+			style="background-color: {{problema.corProblema}}">
+			<td>{{problema.sequencia}}</td>
+			<td>{{problema.codigoCliente}} - {{problema.nomeCliente}}</td>
+			<td>{{problema.codigoLider}} - {{problema.nomeLider}}</td>
+			<td>{{problema.identificadorProblema}}</td>
+			<td>{{problema.descricaoProblema}}</td>
+			<td>{{problema.setor}}</td>
+		</tr>
+	</tbody>
+</table>

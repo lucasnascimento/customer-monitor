@@ -48,3 +48,15 @@ function ViewPortCtrl($scope, $timeout) {
 	$timeout( $scope.changeView, 500 );
 }
 
+
+function SetorCtrl($scope, $http) {
+	
+	$http.get('api/lider/0').success(function(data) {
+		$scope.problemas = data.liderDTO.problemas;
+	});
+	$http.get('api/setor').success(function(data) {
+		$scope.setores = data.stringList;
+	});
+}
+
+

@@ -28,5 +28,12 @@ public @Data class Monitor {
 	private String descricaoProblema;
 	@Column(name="MON_HEXCOR")
 	private String corProblema;
+	@Column(name="MON_DESSET")
+	private String setor;
+	
+	@Column(name="MON_PRITAR")
+	private Integer ordem1;
+	@Column(name="MON_SUBPRI")
+	private Integer ordem2;
 
 }
